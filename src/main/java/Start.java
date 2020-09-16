@@ -1,5 +1,6 @@
-import h7.Gender;
-import h7.Person;
+import h7.BankAccount;
+
+import java.math.BigDecimal;
 
 public class Start {
 
@@ -54,12 +55,30 @@ public class Start {
 //            System.out.println(a[i]);
 //        }
 
-        Person p = new Person("Jan", 45);
-        System.out.println(p.getGender());
-        p.setGender(Gender.MALE);
-        System.out.println(p.getGender());
-        p.haveBirthday(); // person gets one year older
-        System.out.println(p.getAge());
-        System.out.println(Person.numberOfPossibleGenders);
+//        Person p = new Person("Jan", 45);
+//        System.out.println(p.getGender());
+//        p.setGender(Gender.MALE);
+//        System.out.println(p.getGender());
+//        p.haveBirthday(); // person gets one year older
+//        System.out.println(p.getAge());
+//        System.out.println(Person.numberOfPossibleGenders);
+
+        BigDecimal b1money = new BigDecimal(10);
+        BigDecimal b2money = new BigDecimal(2222);
+        BigDecimal interest = new BigDecimal(1.6);
+
+
+        BankAccount b1 = new BankAccount(b1money, interest);
+        BankAccount b2 = new BankAccount(b2money, interest);
+        System.out.println(b1);
+        System.out.println(b2);
+        b1.transferMoney(b2, new BigDecimal(5));
+        System.out.println(b1);
+        System.out.println(b2);
+//        System.out.println(b2.calculateInterest());
+//        System.out.println(BankAccount.getTotalMoneyOfBank());
+//        for (int i = 0; i < BankAccount.allBankAccounts.size(); i++) {
+//            System.out.println(BankAccount.allBankAccounts.get(i));
+//        }
     }
 }

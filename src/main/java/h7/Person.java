@@ -5,7 +5,7 @@ public class Person {
     private int age;
     private Gender gender = Gender.UNKNOWN;
     public static int numberOfPossibleGenders = Gender.values().length;
-    private static final int maximumAge = 130;
+    private static final int MAXIMUM_AGE = 130;
 
     public Person(String name, int age) {
         this.name = name;
@@ -13,8 +13,8 @@ public class Person {
     }
 
     public void setAge(int age) {
-        if (age > maximumAge) {
-            throw new PersonDiedException("Persoon is ouder dan " + maximumAge + " en gaat dood");
+        if (age > MAXIMUM_AGE) {
+            throw new PersonDiedException("Persoon is ouder dan " + MAXIMUM_AGE + " en gaat dood");
         } else {
             this.age = age;
         }
