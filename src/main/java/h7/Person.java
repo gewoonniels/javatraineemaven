@@ -1,13 +1,23 @@
 package h7;
 
 public class Person {
-    public String name;
-    public int age;
-    public Gender gender;
+    private String name;
+    private int age;
+    private Gender gender = Gender.UNKNOWN;
+    public static int numberOfPossibleGenders = Gender.values().length;
+    private static final int maximumAge = 130;
 
     public Person(String name, int age) {
         this.name = name;
-        this.age = age;
+        setAge(age);
+    }
+
+    public void setAge(int age) {
+        if (age > maximumAge) {
+            throw new PersonDiedException("Persoon is ouder dan " + maximumAge + " en gaat dood");
+        } else {
+            this.age = age;
+        }
     }
 
     public Gender getGender() {
@@ -23,11 +33,7 @@ public class Person {
     }
 
     public void haveBirthday() {
-        this.age++;
-    }
-
-    public static int numberOfPossibleGenders() {
-        return Gender.values().length;
+        setAge(++this.age);
     }
 }
 

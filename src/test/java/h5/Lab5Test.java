@@ -45,7 +45,7 @@ public class Lab5Test {
     }
 
     @Test
-    public void factorial10ShouldBe25() {
+    public void factorial10ShouldBe120() {
         //given
         Lab5 l5 = new Lab5();
         int n = 5;

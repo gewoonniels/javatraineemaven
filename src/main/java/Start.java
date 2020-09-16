@@ -1,3 +1,6 @@
+import h7.Gender;
+import h7.Person;
+
 public class Start {
 
     public static void main(String[] args) {
@@ -51,18 +54,12 @@ public class Start {
 //            System.out.println(a[i]);
 //        }
 
-//        Person p = new Person("Jan", 45);
-//        System.out.println(p.getGender());
-//        p.setGender(Gender.MALE);
-//        System.out.println(p.getGender());
-//        p.haveBirthday(); // person gets one year older
-//        System.out.println(p.getAge());
-//        System.out.println(Person.numberOfPossibleGenders);
-
-//        HomeWorkH7 h7 = new HomeWorkH7();
-//        String n = "joe";
-//        h7.changeString(n);
-//        System.out.println(n);
-
+        Person p = new Person("Jan", 45);
+        System.out.println(p.getGender());
+        p.setGender(Gender.MALE);
+        System.out.println(p.getGender());
+        p.haveBirthday(); // person gets one year older
+        System.out.println(p.getAge());
+        System.out.println(Person.numberOfPossibleGenders);
     }
 }
