@@ -27,6 +27,7 @@ public class BankAccount {
 
     public BigDecimal withdrawMoney(BigDecimal money) {
         if (this.balance.subtract(money).compareTo(BigDecimal.ZERO) < 0) {
+            //@TODO hier een exception van maken ?
             System.out.println("Dit kan niet gebeuren omdat u anders rood staat");
         } else {
             this.balance = balance.subtract(money);
