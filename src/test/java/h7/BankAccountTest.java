@@ -11,7 +11,8 @@ public class BankAccountTest {
     @Test
     public void BalanceShouldRaiseByDeposit() {
         //given
-        BankAccount account = new BankAccount(new BigDecimal(10), new BigDecimal(1.8));
+        Bank bank = new Bank();
+        BankAccount account = new BankAccount(new BigDecimal(10), new BigDecimal(1.8), bank);
         //when
         account.depositMoney(new BigDecimal(5));
         //then
@@ -21,7 +22,8 @@ public class BankAccountTest {
     @Test
     public void BalanceShouldDescendByDeposit() {
         //given
-        BankAccount account = new BankAccount(new BigDecimal(10), new BigDecimal(1.8));
+        Bank bank = new Bank();
+        BankAccount account = new BankAccount(new BigDecimal(10), new BigDecimal(1.8), bank);
         //when
         account.withdrawMoney(new BigDecimal(5));
         //then
@@ -31,10 +33,11 @@ public class BankAccountTest {
     @Test
     public void TransferShouldLowerFirstAccount() {
         //given
-        BankAccount account1 = new BankAccount(new BigDecimal(10), new BigDecimal(1.8));
-        BankAccount account2 = new BankAccount(new BigDecimal(10), new BigDecimal(1.8));
+        Bank bank = new Bank();
+        BankAccount account1 = new BankAccount(new BigDecimal(10), new BigDecimal(1.8), bank);
+        BankAccount account2 = new BankAccount(new BigDecimal(10), new BigDecimal(1.8), bank);
         //when
-        account1.transferMoney(account2, new BigDecimal(5));
+        bank.transferMoney(account1, account2, new BigDecimal(5));
         //then
         assertEquals(new BigDecimal(5), account1.getBalance());
     }
@@ -42,10 +45,11 @@ public class BankAccountTest {
     @Test
     public void TransferShouldRaiseSecondAccount() {
         //given
-        BankAccount account1 = new BankAccount(new BigDecimal(10), new BigDecimal(1.8));
-        BankAccount account2 = new BankAccount(new BigDecimal(10), new BigDecimal(1.8));
+        Bank bank = new Bank();
+        BankAccount account1 = new BankAccount(new BigDecimal(10), new BigDecimal(1.8), bank);
+        BankAccount account2 = new BankAccount(new BigDecimal(10), new BigDecimal(1.8), bank);
         //when
-        account1.transferMoney(account2, new BigDecimal(5));
+        bank.transferMoney(account1, account2, new BigDecimal(5));
         //then
         assertEquals(new BigDecimal(15), account2.getBalance());
     }

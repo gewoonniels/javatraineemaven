@@ -1,3 +1,4 @@
+import h7.Bank;
 import h7.BankAccount;
 
 import java.math.BigDecimal;
@@ -66,19 +67,14 @@ public class Start {
         BigDecimal b1money = new BigDecimal(10);
         BigDecimal b2money = new BigDecimal(2222);
         BigDecimal interest = new BigDecimal(1.6);
+        Bank bank = new Bank();
+//
+        BankAccount b1 = new BankAccount(b1money, interest, bank);
+        BankAccount b2 = new BankAccount(b2money, interest, bank);
 
-
-        BankAccount b1 = new BankAccount(b1money, interest);
-        BankAccount b2 = new BankAccount(b2money, interest);
-        System.out.println(b1);
-        System.out.println(b2);
-        b1.transferMoney(b2, new BigDecimal(5));
-        System.out.println(b1);
-        System.out.println(b2);
-//        System.out.println(b2.calculateInterest());
-//        System.out.println(BankAccount.getTotalMoneyOfBank());
-//        for (int i = 0; i < BankAccount.allBankAccounts.size(); i++) {
-//            System.out.println(BankAccount.allBankAccounts.get(i));
-//        }
+        System.out.println(bank);
+        bank.transferMoney(b1, b2, new BigDecimal(5));
+        System.out.println(bank);
+        System.out.println(bank.getTotalMoneyOfBank());
     }
 }
