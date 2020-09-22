@@ -1,61 +1,10 @@
-import h7.Bank;
-import h7.BankAccount;
-
-import java.math.BigDecimal;
+import chainstore.CashRegister;
+import chainstore.GoldCard;
+import chainstore.RegularCard;
 
 public class Start {
 
     public static void main(String[] args) {
-//        HomeWork3 h3 = new HomeWork3();
-//        h3.showDifference();
-//        h3.calculateJ();
-//        System.out.println(h3.calculateBinary("1010", "100"));
-//        h3.calculateTime(23, 80);
-//
-//        Client client1 = new Client("Jan");
-//        Client client2 = new Client("Piet");
-//        client2 = client1;
-//        client2.firstName = "Joris";
-//
-//        System.out.println(client1.firstName);
-
-//        HomeWorkH4 h4 = new HomeWorkH4();
-//        h4.coldOrWarm(Season.SUMMER);
-//        h4.printHourGlass(11);
-
-
-//        Lab4 lab4 = new Lab4();
-//        lab4.checkAccountNumber();
-
-//        Lab5 lab5 = new Lab5();
-//        System.out.println(lab5.greatest(3,7));
-//        System.out.println(lab5.greatest(2,3,4,88,5,6));
-//        System.out.println(lab5.factorial(5));
-//        HomeWorkH5 hw5 = new HomeWorkH5();
-//        System.out.println(hw5.fibo(6));  /* 1 1 2 3 5 8 */
-//        hw5.fibo(4, 6); /*4 4 8 12 20 32.*/
-//        System.out.println(hw5.fibo(4, 5, 6)); /*4 5 9 14 23*/
-//        System.out.println(hw5.goldenRatio(47));
-//        System.out.println(hw5.goldenRatioByFibo(10));
-
-//        Lab6 lab6 = new Lab6();
-//        lab6.calculateSum();
-//        lab6.print3By3Array();
-
-//        long[] row = new long[4];
-//        row[2] = 3;
-//        long[] copy = row;
-//        copy[2]++;
-//
-//        System.out.println(copy[2]++);
-
-//        HomeWorkH6 h6 = new HomeWorkH6();
-//        long[] a = h6.doubleArraySize(new long[]{1L, 2L, 3L, 4L});
-//        a = h6.fibo(4, 5, 6);
-//        for (int i = 0; i < a.length; i++) {
-//            System.out.println(a[i]);
-//        }
-
 //        Person p = new Person("Jan", 45);
 //        System.out.println(p.getGender());
 //        p.setGender(Gender.MALE);
@@ -64,17 +13,33 @@ public class Start {
 //        System.out.println(p.getAge());
 //        System.out.println(Person.numberOfPossibleGenders);
 
-        BigDecimal b1money = new BigDecimal(10);
-        BigDecimal b2money = new BigDecimal(2222);
-        BigDecimal interest = new BigDecimal(1.6);
-        Bank bank = new Bank();
-//
-        BankAccount b1 = new BankAccount(b1money, interest, bank);
-        BankAccount b2 = new BankAccount(b2money, interest, bank);
+//        BigDecimal b1money = new BigDecimal(10);
+//        BigDecimal b2money = new BigDecimal(2222);
+//        BigDecimal interest = new BigDecimal(1.6);
+//        Bank bank = new Bank();
+////
+//        BankAccount b1 = new BankAccount(b1money, interest, bank, p);
+//        BankAccount b2 = new BankAccount(b2money, interest, bank);
+//        System.out.println(b1);
+//        System.out.println(bank);
+//        bank.transferMoney(b1, b2, new BigDecimal(5));
+//        System.out.println(bank);
+//        System.out.println(bank.getTotalMoneyOfBank());
 
-        System.out.println(bank);
-        bank.transferMoney(b1, b2, new BigDecimal(5));
-        System.out.println(bank);
-        System.out.println(bank.getTotalMoneyOfBank());
+//        Person p = new Person("niels", 24);
+//        Android a = new Android();
+//        Employee e = new Employee("terst", 1);
+//        Teacher t = new Teacher("bram", 20);
+//        System.out.println(p.greet());
+//        System.out.println(a.greet());
+//        System.out.println(e.greet());
+//        System.out.println(t.greet());
+//        a.charge(90);
+//        System.out.println(a.greet());
+
+        RegularCard regular = new RegularCard("regcard", "hier", "daar", 100);
+        GoldCard gold = new GoldCard("goldcard", "hier", "daar", 100, 30);
+        CashRegister cashReg = new CashRegister(regular, gold);
+        cashReg.pay();
     }
 }

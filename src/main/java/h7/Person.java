@@ -1,6 +1,6 @@
 package h7;
 
-public class Person {
+public class Person extends Human {
     private String name;
     private int age;
     private Gender gender = Gender.UNKNOWN;
@@ -10,6 +10,11 @@ public class Person {
     public Person(String name, int age) {
         this.name = name;
         setAge(age);
+    }
+
+    public Person(String name, int age, Gender gender) {
+        this(name, age);
+        this.gender = gender;
     }
 
     public void setAge(int age) {
@@ -34,6 +39,21 @@ public class Person {
 
     public void haveBirthday() {
         setAge(++this.age);
+    }
+
+    @Override
+    public String toString() {
+        return name;
+    }
+
+    @Override
+    public void finalize() {
+        System.out.println("FINALIZE NOW");
+    }
+
+    @Override
+    public String greet() {
+        return "Hello my name is " + this.name + ". Nice to meet you!";
     }
 }
 

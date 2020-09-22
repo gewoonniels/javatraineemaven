@@ -8,6 +8,7 @@ public class BankAccount {
     private BigDecimal balance;
     private BigDecimal interestRate;
     private Bank bank;
+    private Person person;
 
     public BankAccount(BigDecimal balance, BigDecimal interestRate, Bank bank) {
         this.balance = balance;
@@ -15,6 +16,11 @@ public class BankAccount {
         this.accountNumber = createAccountNumber();
         this.bank = bank;
         bank.addAccount(this);
+    }
+
+    public BankAccount(BigDecimal balance, BigDecimal interestRate, Bank bank, Person person) {
+        this(balance, interestRate, bank);
+        this.person = person;
     }
 
     private String createAccountNumber() {
@@ -47,11 +53,13 @@ public class BankAccount {
 
     @Override
     public String toString() {
+        String owner = person != null ? person.toString() : "No owner";
         return "BankAccount{" +
                 "accountNumber='" + accountNumber + '\'' +
                 ", balance=" + balance +
                 ", interestRate=" + interestRate +
                 ", interest this year: " + calculateInterest() +
+                ", Owner: " + owner +
                 '}';
     }
 }
