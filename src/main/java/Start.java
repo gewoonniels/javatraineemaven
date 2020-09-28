@@ -2,6 +2,9 @@ import chainstore.CashRegister;
 import chainstore.GoldCard;
 import chainstore.RegularCard;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Start {
 
     public static void main(String[] args) {
@@ -37,9 +40,14 @@ public class Start {
 //        a.charge(90);
 //        System.out.println(a.greet());
 
-        RegularCard regular = new RegularCard("regcard", "hier", "daar", 100);
-        GoldCard gold = new GoldCard("goldcard", "hier", "daar", 100, 30);
-        CashRegister cashReg = new CashRegister(regular, gold);
-        cashReg.pay();
+//        RegularCard regular = new RegularCard("regcard", "hier", "daar", 100);
+//        GoldCard gold = new GoldCard("goldcard", "hier", "daar", 100, 30);
+//        CashRegister cashReg = new CashRegister(regular, gold);
+//        cashReg.pay();
+
+        StringBuilder stringbuilder = new StringBuilder("Hello");
+        stringbuilder.append(", World!");
+        System.out.println(stringbuilder); // print Hello, World!
+
     }
 }

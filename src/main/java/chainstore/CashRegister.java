@@ -29,7 +29,6 @@ public class CashRegister {
                 card.pay(Integer.parseInt(amount));
             }
         }
-
         printCardOverview();
     }
 

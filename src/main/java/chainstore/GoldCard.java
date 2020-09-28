@@ -21,7 +21,7 @@ public class GoldCard extends Card {
     public boolean pay(int amount) {
         double priceWithDiscount = amount - ((double) (amount) / 100.0 * discount);
         if ((credit - priceWithDiscount) > 0) {
-            this.credit -= amount;
+            this.credit -= priceWithDiscount;
             return true;
         } else {
             System.out.println("insufficient funds");
