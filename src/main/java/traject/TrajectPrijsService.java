@@ -6,7 +6,7 @@ public class TrajectPrijsService {
     TrajectEenhedenNaarPrijsService trajectNaarPrijs = new TrajectEenhedenNaarPrijsService();
 
     public int getTracjectPrijs(String from, String to) {
-        int eenheden = trajectNaarEenheden.getTrajectEenheden("utrecht", "amsterdam");
+        int eenheden = trajectNaarEenheden.getTrajectEenheden(from, to);
         int prijs = trajectNaarPrijs.getPriceTrajectEenheden(eenheden);
         return prijs;
     }

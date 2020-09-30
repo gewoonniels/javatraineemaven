@@ -1,13 +1,19 @@
 package h7;
 
+import h12.MyAnnotation;
+import h12.MyAnnotation2;
+
 import java.util.Objects;
 
+@MyAnnotation(value = "class person")
 public class Person extends Human {
     private String name;
     private int age;
     private Gender gender = Gender.UNKNOWN;
     public static int numberOfPossibleGenders = Gender.values().length;
     private static final int MAXIMUM_AGE = 130;
+    private HistoryRecord[] historyArray = new HistoryRecord[10];
+    private int historyArrayCounter = 0;
 
     public Person(String name, int age) {
         this.name = name;
@@ -43,6 +49,36 @@ public class Person extends Human {
         setAge(++this.age);
     }
 
+    @MyAnnotation(value = "addhistory")
+    @MyAnnotation2(value = "addhistory")
+    public void addHistory(String descr) {
+        HistoryRecord his = new HistoryRecord(descr);
+        if (historyArrayCounter <= 9) {
+            historyArray[historyArrayCounter] = his;
+            historyArrayCounter++;
+        } else {
+            System.out.println("Array is full");
+        }
+    }
+
+    @MyAnnotation2(value = "printhistory")
+    public void printHistory() {
+        for (HistoryRecord h : historyArray) {
+            if (h != null) {
+                System.out.println(h);
+            }
+        }
+    }
+
+    public Human createSubHuman() {
+        return new Human() {
+            @Override
+            public String greet() {
+                return "Sub is the best.";
+            }
+        };
+    }
+
     @Override
     public String toString() {
         return name;
@@ -72,6 +108,23 @@ public class Person extends Human {
     public String greet() {
         return "Hello my name is " + this.name + ". Nice to meet you!";
     }
+
+    private class HistoryRecord {
+        String description;
+
+        public HistoryRecord(String d) {
+            this.description = d;
+        }
+
+        @Override
+        public String toString() {
+            return "HistoryRecord{" +
+                    "description='" + description + '\'' +
+                    '}';
+        }
+    }
+
+
 }
 
 

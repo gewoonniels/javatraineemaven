@@ -1,5 +1,6 @@
 package traject;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -28,13 +29,24 @@ class TrajectPrijsServiceTest {
 
     @BeforeEach
     void setUp() {
-        when(naarEenheden.getTrajectEenheden(anyString(), anyString())).thenReturn(0);
-        when(naarPrijs.getPriceTrajectEenheden(anyInt())).thenReturn(33);
+
     }
 
     @Test
     void getTracjectPrijs() {
+        when(naarEenheden.getTrajectEenheden(anyString(), anyString())).thenReturn(0);
+        when(naarPrijs.getPriceTrajectEenheden(anyInt())).thenReturn(33);
+
         int prijs = target.getTracjectPrijs("utrecht", "amsterdam");
         assertThat(prijs, is(33));
+    }
+
+    @Test
+    void getInvalidLocationExceptionWhenUsingApeldoorn() {
+        when(naarEenheden.getTrajectEenheden("apeldoorn", "apeldoorn")).thenThrow(InvalidLocationException.class);
+
+        Assertions.assertThrows(InvalidLocationException.class, () -> {
+            naarEenheden.getTrajectEenheden("apeldoorn", "apeldoorn");
+        });
     }
 }
